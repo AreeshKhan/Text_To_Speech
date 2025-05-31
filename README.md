@@ -89,6 +89,16 @@ python app.py
 The app will be available at: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 ---
+### Set Up the Streamlit Application 🚀
+
+Ensure the `main.py` file is in the project directory.
+
+### Run the Application 🌟
+
+```bash
+streamlit run main.py
+```
+
 
 ## 🎮 Usage
 
