@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech Converter</title>
+    <link rel="shortcut icon" href="https://res.cloudinary.com/dqcvlj2il/image/upload/v1747050659/PWSkills-white_qiladc.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6b34a99073.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-100 font-inter">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+                <span class="ml-3 text-xl font-bold text-gray-800">Text to Speech</span>
+            </a>
+            <div class="space-x-4">
+                <a href="#features" class="text-gray-600 hover:text-blue-600 transition">Features</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Convert Text to Speech Instantly</h1>
+            <p class="text-lg md:text-xl mb-8">Transform your text into natural-sounding speech with multiple accents.</p>
+            <a href="#converter" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Try Now</a>
+        </div>
+    </section>
+
+    <!-- Converter Section -->
+    <section id="converter" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Text to Speech Converter</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Input Form -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-keyboard mr-2 text-blue-600"></i> Enter Your Text
+                    </h3>
+                    <form id="datafetch_form" enctype="multipart/form-data">
+                        <label for="form-id-accent" class="block text-gray-700 font-medium mb-2">Select English Accent</label>
+                        <select class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-600" id="form-id-accent" name="accent" required>
+                            <option value="" disabled selected>Which English accent do you want?</option>
+                            <!-- Dynamically populated by Flask -->
+                            {% for accent in accent_list %}
+                            <option value="{{accent}}">{{accent}}</option>
+                            {% endfor %}
+                        </select>
+                        <textarea class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-600" rows="8" id="comment" placeholder="Type your text here..."></textarea>
+                        <button class="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition" id="fetch" type="submit">
+                            <i class="fas fa-play mr-2"></i> Convert to Speech
+                        </button>
+                    </form>
+                </div>
+                <!-- Result Box -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-headphones mr-2 text-blue-600"></i> Listen to Your Speech
+                    </h3>
+                    <div class="json-result flex items-center justify-center h-48">
+                        <p class="text-gray-500">Your audio will appear here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Why Choose Our Converter?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <i class="fas fa-globe text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Multiple Accents</h3>
+                    <p class="text-gray-600">Choose from a variety of English accents to suit your needs.</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-bolt text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Fast Conversion</h3>
+                    <p class="text-gray-600">Get your text converted to speech in seconds.</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-mobile-alt text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Responsive Design</h3>
+                    <p class="text-gray-600">Use our converter on any device, anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Text to Speech</h3>
+                    
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-gray-400">Email: areeshkhan2000@gmail.com</p>
+                    <p class="text-gray-400">Phone: xxxxxxxxxx</p>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-400">
+                <p>&copy; 2025 Text to Speech. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loading" class="hidden fixed inset-0 bg-white bg-opacity-70 z-50 flex items-center justify-center">
+        <div class="border-8 border-gray-200 border-t-blue-600 rounded-full w-16 h-16 animate-spin"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        $(document).ready(function () {
+            $('#loading').hide();
+            $("#fetch").click(function (e) {
+                e.preventDefault();
+                var input = $('#comment').val();
+                var val = $('#form-id-accent').val();
+                if (!input || !val) {
+                    alert("Please enter text and select an accent.");
+                    return;
+                }
+                $('#loading').show();
+                $.ajax({
+                    url: "../predict",
+                    type: "post",
+                    headers: {
+                        'Content-Type': 'application/json;charset=UTF-8',
+                        "Access-Control-Allow-Origin": "*"
+                    },
+                    data: JSON.stringify({ data: input, accent: val }),
+                    success: function (response) {
+                        $(".json-result").html("");
+                        $(".json-result").html('<audio id="audio" controls class="w-full"><source id="audioSource" src=""></source>Your browser does not support the audio format.</audio>');
+                        var audio = document.getElementById('audio');
+                        var source = document.getElementById('audioSource');
+                        var audioFile = "data:audio/wav;base64," + response.data;
+                        source.src = audioFile;
+                        audio.load();
+                        $('#loading').hide();
+                    },
+                    error: function () {
+                        alert("An error occurred. Please try again.");
+                        $('#loading').hide();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
