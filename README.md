@@ -12,8 +12,7 @@ Welcome to the **Text-to-Speech (TTS) Converter project!** This application conv
 - **Multiple Accents**: Choose from a variety of English accents to customize your speech output. 🗣️  
 - **Fast Conversion**: Convert text to speech in seconds with a seamless experience. ⚡  
 - **Responsive Design**: Access the app on any device, from desktops to mobiles. 📱💻  
-- **User-Friendly Interface**: Modern UI with intuitive controls and audio playback. 🎨  
-- **Powered by Pwskills.com**: Leverages advanced text-to-speech technology. 🧠  
+- **User-Friendly Interface**: Modern UI with intuitive controls and audio playback. 🎨    
 
 ---
 
@@ -98,7 +97,9 @@ Ensure the `main.py` file is in the project directory.
 ```bash
 streamlit run main.py
 ```
-
+###Live
+`https://areesh-khan-text-to-speech.streamlit.app/`
+---
 
 ## 🎮 Usage
 
